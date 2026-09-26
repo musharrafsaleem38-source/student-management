@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Enter Unique Key</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Enter Unique Key</h1>
+
+        <p>
+            Enter your unique key to view your details.
+        </p>
+
+
+        {% if error %}
+
+            <div class="error">
+                {{ error }}
+            </div>
+
+        {% endif %}
+
+
+        <form action="/find-student" method="POST">
+
+            <label>Unique Key</label>
+
+            <input
+                type="text"
+                name="unique_key"
+                placeholder="Example: A7K9P2XM"
+                required
+            >
+
+
+            <button type="submit">
+                View Details
+            </button>
+
+        </form>
+
+
+        <br>
+
+        <a href="/">
+            Back to Home
+        </a>
+
+    </div>
+
+</body>
+
+</html>

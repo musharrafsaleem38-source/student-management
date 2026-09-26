@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Registration</h1>
+
+        {% if error %}
+
+            <div class="error">
+                {{ error }}
+            </div>
+
+        {% endif %}
+
+
+        {% if success %}
+
+            <div class="success">
+
+                <h2>Registration Successful!</h2>
+
+                <p>Hello {{ student_name }}</p>
+
+                <p>Your Unique Key is:</p>
+
+                <div class="key">
+                    {{ unique_key }}
+                </div>
+
+                <p>
+                    Save this key safely.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+
+        <form action="/register" method="POST">
+
+            <label>Name</label>
+
+            <input
+                type="text"
+                name="name"
+                required
+            >
+
+
+            <label>University Email</label>
+
+            <input
+                type="email"
+                name="email"
+                required
+            >
+
+
+            <label>Contact Number</label>
+
+            <input
+                type="tel"
+                name="contact"
+                required
+            >
+
+
+            <label>Enrollment Number</label>
+
+            <input
+                type="text"
+                name="enrollment"
+                required
+            >
+
+
+            <button type="submit">
+                Generate Unique Key
+            </button>
+
+        </form>
+
+
+        <br>
+
+        <a href="/">
+            Back to Home
+        </a>
+
+    </div>
+
+</body>
+
+</html>
